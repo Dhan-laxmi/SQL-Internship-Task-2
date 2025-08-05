@@ -1,0 +1,54 @@
+CREATE TABLE Projects (
+    project_id INTEGER PRIMARY KEY,
+    project_name text NOT NULL,
+    client_name TEXT,
+    start_date DATE,
+    end_date DATE,
+    budget REAL DEFAULT 0.0,
+    status TEXT DEFAULT 'Ongoing'
+);
+INSERT INTO Projects (project_id, project_name, client_name, start_date, end_date, budget, status)
+VALUES 
+(1, 'AI Chatbot', 'TechCorp', '2025-01-01', '2025-06-30', 50000, 'Completed'),
+(2, 'E-Commerce App', 'ShopEase', '2025-02-01', NULL, NULL, NULL),
+(3, 'Inventory Tracker', 'RetailMate', '2025-03-10', NULL, 30000, NULL),
+(4, 'Portfolio Website', 'Freelancer Inc', '2025-04-01', '2025-04-15', 5000, 'Completed'),
+(5, 'Learning Platform', 'EduSoft', '2025-01-15', '2025-06-01', NULL, 'Ongoing'),
+(6, 'Crypto Dashboard', 'FinTechX', '2025-05-20', NULL, 80000, 'Paused'),
+(7, 'Mobile Game', 'GameDevCo', '2025-06-01', NULL, NULL, NULL),
+(8, 'IoT Home Automation', NULL, '2025-07-10', NULL, NULL, NULL);
+select * from projects;
+
+UPDATE Projects
+SET budget = 20000
+WHERE budget IS NULL;
+
+UPDATE Projects
+SET status = 'Ongoing'
+WHERE status IS NULL;
+
+DELETE FROM Projects
+WHERE client_name IS NULL;
+select * from projects;
+
+UPDATE Projects
+SET end_date = '2025-12-31'
+WHERE end_date IS NULL;
+
+UPDATE Projects
+SET end_date = '2025-10-15'
+WHERE project_id = 2;
+
+UPDATE Projects
+SET end_date = '2025-09-30'
+WHERE project_id = 3;
+
+UPDATE Projects
+SET end_date = '2025-11-20'
+WHERE project_id = 6;
+
+UPDATE Projects
+SET end_date = '2025-12-05'
+WHERE project_id = 7;
+
+select * from projects;
